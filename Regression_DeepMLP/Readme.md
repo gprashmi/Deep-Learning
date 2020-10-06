@@ -28,7 +28,7 @@ The results of the model performance are tabulated and the time taken by RandomS
 |Model with LeakyRelu activation|0.3816 |0.6177 |0.4804 |
 |Model with SeLU activation     |0.8127 |0.9065 |0.7641 |
 
-There is considerable difference between the baseline model (2 layer NN) and the tuned models. However, the models with LeakyReLU and SeLU did not perform well indicating they do not suit for the regression problem of this dataset. Therefore the best model turns out to have 25.13% decrease in the test error that was tuned by HyperBand compared to the baseline model without outlier. 
+There is considerable difference between the baseline model (2 layer NN) and the tuned models. However, the models with LeakyReLU and SeLU did not perform well indicating they do not suit for the regression problem of this dataset. Therefore the best model turns out to have 25.13% decrease in the test error that was tuned by HyperBand compared to the baseline model without outlier.  
 
 ### References
 

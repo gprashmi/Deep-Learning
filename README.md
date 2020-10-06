@@ -1,6 +1,6 @@
 # Deep-Learning
 
-This repository consists of various concept based notebook in Deep Learning. 
+This repository consists of various concept based notebooks in Deep Learning. 
 
 ### Regression_MLP
 To build a deep MLP model for regression task on prediction of house value using California Housing dataset. It introduces the Keras Tuner library

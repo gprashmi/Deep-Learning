@@ -10,4 +10,4 @@ that is used to perform hyper-parameter tuning on the neural network. Using the 
 
 To predict the survival of passengers on Titanic by implementing neural network from scratch using Python incorporating adding multiple layers, different activation functions, feed forward, MSE loss calculation and back propagation, and early stopping to avoid overfitting and comparing its results with voting, average and weighted average ensemble methods using Logistic Regression, Gradient Boosting and MLP classifiers. 
 
-The results showed NN with 1 hidden layers showed a Kaggle Public score of 0.79186 which is 2.4% higher compared to NN with 3 hidden layers and ~2% higher compared to ensemble models.
+The results showed NN with 1 hidden layer showed a Kaggle Public score of 0.79186 which is 2.4% higher compared to NN with 3 hidden layers and ~2% higher compared to ensemble models.

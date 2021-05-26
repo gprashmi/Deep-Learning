@@ -25,6 +25,8 @@ Four algorithms are implemented in this project:
     1. Prepare data and create a NN model using different layers, neurons, and activation functions. Train the network.
     2. Apply feed forward to calculate the o/p, calculate the MSE loss and perform back-propagation to update weights and bias so as to reduce the loss.
 
+![NN_flowchart](https://user-images.githubusercontent.com/45960112/119744784-96f93c00-be41-11eb-8bab-bf2a3c99ec00.png)
+
 2. Voting Classifier Model: It is an ensemble based ML model that trains on multiple unfitted-algorithms using hard/soft voting method. Here 3 such ML models: LR, GBC and MLPC are used to preform ensemble voting classifier with “hard” voting using sklearn library. The “hard” voting approach predicts output based on the highest probability among the models for the chosen class and gives the output.
 
 3. Average and Weighted Average Ensemble Model: The main reason for using average and weighted average ensemble modeling is to reduce the error by aggregating the predictions over multiple classifiers. Assuming every classifier makes mistakes in prediction and by using diverse classifiers such as simple ML model (LR), ensemble algorithm (GBC) and neural network (MLPC) and by aggregating their predictions, we can try to reduce the prediction error.

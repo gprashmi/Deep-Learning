@@ -1,21 +1,23 @@
+# Titanic Survival Prediction using Neural Networks from scratch and Ensemble Methods
+
 The sinking of the Titanic is one of the most infamous shipwrecks in history. On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting in the death of 1502 out of 2224 passengers and crew.
 
 The objective of this project is to predict survival of the passengers by implementing a neural network from scratch and compare its performance with different ensemble models built using Logistic Regression, Gradient Boosting and MLP classifiers.
 
-Dataset:
+### Dataset
 
 The dataset is taken from Kaggle where the train has 891 instances with 10 feature columns and 1 dependent column (Survived) and the test data has 418 instances. The following methods are used for data cleaning and pre-processing:
-1. Feature Selection: 
+1. **Feature Selection:** 
     1. Family_size, Total_fare and Title are extracted from Parch, SibSp, Fare, Name
     2. PassengerID, Name, Fare, SipSp, Parch, Ticket, Cabin features are dropped
-2. Data cleaning:
+2. **Data cleaning:** It is performed using Ordinal Encoder and Iterative Imputer
     1. Encode categorical features into integers using Ordinal Encoder. Imputing missing values after performing one-hot encoding may give inaccurate results as this approach will generate more features and the imputation for categorical features will vary because of the sparsity. To eliminate this problem, OE is used to convert non-null values to integers preserving the NaN values and this can be converted back to strings for one-hot encoding later on.
     2. Using mean on Age feature and mode on Sex, Embarked results in filling values based on that particular column values. It does not consider the relation with other features. Thus Iterative Imputer is used, which model each feature with missing values as a function of other features in a round-robin fashion. It performs imputation for certain steps by fitting a regression line on (X,y) for known values where y is missing value feature and X are other columns. By using this line, missing values are imputed and this is done for each feature
-3. Data Pre-processing:
+3. **Data Pre-processing:**
     1. After data cleaning is performed, the categorical features are converted back to string values and using pd.get_dummies the features: Sex, Embarked and Title are one-hot encoded that creates one binary variable for each category
     2. Standard Scaler is used which scales the features using its mean and standard deviation
 
-Modelling
+### Modelling
 
 Four algorithms are implemented in this project:
 
@@ -28,3 +30,19 @@ Four algorithms are implemented in this project:
 3. Average and Weighted Average Ensemble Model: The main reason for using average and weighted average ensemble modeling is to reduce the error by aggregating the predictions over multiple classifiers. Assuming every classifier makes mistakes in prediction and by using diverse classifiers such as simple ML model (LR), ensemble algorithm (GBC) and neural network (MLPC) and by aggregating their predictions, we can try to reduce the prediction error.
     1. Average Ensemble: This approach averages the predictions on the validation set from all the models considered for ensemble and the average prediction is used to evaluate the performance.
     2. Weighted Average: This method assigns weights to the classifier predictions, higher value for better classifiers and smaller values for other classifiers and then calculates the weighted average prediction to reduce the error loss
+
+### Results
+
+After the above mentioned models are implemented and evaluated on the validation set, the model is used to predict the outcome of survival on the test data. This prediction is converted into CSV file and submitted on Kaggle to achieve test public score.The results of the models implemented, validation accuracy, public score on test data are tabulated. 
+
+
+|Model                          |Validation Accuracy    |Public Score   |
+|-------------------------------|-------|-------|
+|NN with 1 hidden layer         |84.4% |0.79186 |
+|NN with 3 hidden layer      | 78.89%|0.77272 | 
+|Voting Classifier             | 87.78%|0.77511 |
+|Average Ensemble model                |82.22% |0.77990 |
+|Weighted Average Ensemble Model|85.56% |0.78708 | 
+
+The above table shows that the NN with 1 hidden layer performed better with the score of 0.7918 compared to other models and thus my Kaggle rank for this score at the time of submission is 1541. 
+
